@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E78BC30-B67A-43CF-92F0-18EE69111210}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PrinterRepair</RootNamespace>
+    <AssemblyName>PrinterRepair</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.7.142.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.7.142\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.3\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Adding\AddAnOrderToTechnicianCommand.cs" />
+    <Compile Include="Commands\Creating\CreateOrderCommand.cs" />
+    <Compile Include="Commands\Creating\CreatePrinterCommand.cs" />
+    <Compile Include="Commands\Creating\CreateUserCommand.cs" />
+    <Compile Include="Commands\Deleting\DeletePrinterCommand.cs" />
+    <Compile Include="Commands\Deleting\DeleteUserCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Listing\ListUserCommand.cs" />
+    <Compile Include="Core\Engine.cs" />
+    <Compile Include="Core\Factories\CommandFactory.cs" />
+    <Compile Include="Core\Factories\ICommandFactory.cs" />
+    <Compile Include="Core\Factories\IModelFactory.cs" />
+    <Compile Include="Core\Factories\ModelFactory.cs" />
+    <Compile Include="Core\IEngine.cs" />
+    <Compile Include="Core\Providers\CommandParser.cs" />
+    <Compile Include="Core\Providers\IParser.cs" />
+    <Compile Include="Data\IPrinterServiceContext.cs" />
+    <Compile Include="Data\PrinterServiceContext.cs" />
+    <Compile Include="Migrations\201710280949589_User Initial.cs" />
+    <Compile Include="Migrations\201710280949589_User Initial.Designer.cs">
+      <DependentUpon>201710280949589_User Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710281021586_Damage Initial.cs" />
+    <Compile Include="Migrations\201710281021586_Damage Initial.Designer.cs">
+      <DependentUpon>201710281021586_Damage Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710281144246_Order Initial.cs" />
+    <Compile Include="Migrations\201710281144246_Order Initial.Designer.cs">
+      <DependentUpon>201710281144246_Order Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710281146118_Technician Initial.cs" />
+    <Compile Include="Migrations\201710281146118_Technician Initial.Designer.cs">
+      <DependentUpon>201710281146118_Technician Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710281223587_Technician.cs" />
+    <Compile Include="Migrations\201710281223587_Technician.Designer.cs">
+      <DependentUpon>201710281223587_Technician.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710281229047_Order Update.cs" />
+    <Compile Include="Migrations\201710281229047_Order Update.Designer.cs">
+      <DependentUpon>201710281229047_Order Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710281416307_Models.cs" />
+    <Compile Include="Migrations\201710281416307_Models.Designer.cs">
+      <DependentUpon>201710281416307_Models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291539007_Printer Damages.cs" />
+    <Compile Include="Migrations\201710291539007_Printer Damages.Designer.cs">
+      <DependentUpon>201710291539007_Printer Damages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291557064_Printers Damages.cs" />
+    <Compile Include="Migrations\201710291557064_Printers Damages.Designer.cs">
+      <DependentUpon>201710291557064_Printers Damages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710291602132_Printer Damages Update.cs" />
+    <Compile Include="Migrations\201710291602132_Printer Damages Update.Designer.cs">
+      <DependentUpon>201710291602132_Printer Damages Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Damage.cs" />
+    <Compile Include="Models\Enums\PrinterType.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Printer.cs" />
+    <Compile Include="Models\Technician.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Ninject\PrinterServiceModule.cs" />
+    <Compile Include="StartUp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Providers\ConsoleReader.cs" />
+    <Compile Include="Core\Providers\ConsoleWriter.cs" />
+    <Compile Include="Core\Providers\IReader.cs" />
+    <Compile Include="Core\Providers\IWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710280949589_User Initial.resx">
+      <DependentUpon>201710280949589_User Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710281021586_Damage Initial.resx">
+      <DependentUpon>201710281021586_Damage Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710281144246_Order Initial.resx">
+      <DependentUpon>201710281144246_Order Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710281146118_Technician Initial.resx">
+      <DependentUpon>201710281146118_Technician Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710281223587_Technician.resx">
+      <DependentUpon>201710281223587_Technician.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710281229047_Order Update.resx">
+      <DependentUpon>201710281229047_Order Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710281416307_Models.resx">
+      <DependentUpon>201710281416307_Models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291539007_Printer Damages.resx">
+      <DependentUpon>201710291539007_Printer Damages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291557064_Printers Damages.resx">
+      <DependentUpon>201710291557064_Printers Damages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710291602132_Printer Damages Update.resx">
+      <DependentUpon>201710291602132_Printer Damages Update.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
